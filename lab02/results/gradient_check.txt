@@ -1,0 +1,25 @@
+--- At initialisation ---
+W3(51, 7): analytic=1.2272e-05 numeric=1.2272e-05 rel_err=6.05e-07 OK
+W1(20, 38): analytic=4.3817e-05 numeric=4.3817e-05 rel_err=1.15e-07 OK
+W2(18, 22): analytic=0.0000e+00 numeric=0.0000e+00 rel_err=0.00e+00 OK
+W3(10, 7): analytic=7.8576e-06 numeric=7.8576e-06 rel_err=9.38e-07 OK
+W1(35, 39): analytic=5.9298e-05 numeric=5.9298e-05 rel_err=2.88e-08 OK
+W3(21, 4): analytic=4.2638e-05 numeric=4.2638e-05 rel_err=9.42e-08 OK
+W2(23, 43): analytic=2.6265e-06 numeric=2.6265e-06 rel_err=1.97e-06 FAIL
+W2(37, 1): analytic=0.0000e+00 numeric=0.0000e+00 rel_err=0.00e+00 OK
+W1(32, 11): analytic=0.0000e+00 numeric=0.0000e+00 rel_err=0.00e+00 OK
+W2(21, 60): analytic=3.0242e-05 numeric=3.0242e-05 rel_err=5.17e-08 OK
+Passed 9/10 (need at least 9)
+
+--- After 200 full-batch steps (lr 0.1) ---
+W3(51, 7): analytic=3.0047e-04 numeric=3.0047e-04 rel_err=8.18e-09 OK
+W1(20, 38): analytic=1.4054e-04 numeric=1.4054e-04 rel_err=4.01e-08 OK
+W2(18, 22): analytic=0.0000e+00 numeric=0.0000e+00 rel_err=0.00e+00 OK
+W3(10, 7): analytic=-8.4970e-05 numeric=-8.4970e-05 rel_err=2.47e-08 OK
+W1(35, 39): analytic=6.6882e-05 numeric=6.6882e-05 rel_err=9.22e-08 OK
+W3(21, 4): analytic=1.8627e-04 numeric=1.8627e-04 rel_err=1.22e-08 OK
+W2(23, 43): analytic=0.0000e+00 numeric=0.0000e+00 rel_err=0.00e+00 OK
+W2(37, 1): analytic=0.0000e+00 numeric=0.0000e+00 rel_err=0.00e+00 OK
+W1(32, 11): analytic=0.0000e+00 numeric=0.0000e+00 rel_err=0.00e+00 OK
+W2(21, 60): analytic=-1.9952e-06 numeric=-1.9952e-06 rel_err=1.09e-06 FAIL
+Passed 9/10 (need at least 9)

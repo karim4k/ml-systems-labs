@@ -52,3 +52,25 @@ class MLP:
 def cross_entropy(P, Y):
     eps = 1e-12
     return -np.mean(np.sum(Y * np.log(P + eps), axis=1))
+
+def backward(net, cache, Y):
+    """Gradients of mean cross-entropy w.r.t. all parameters."""
+    p = net.params
+    X, Z1, A1, Z2, A2, P = cache
+    N = X.shape[0]
+
+    dZ3 = (P - Y) / N                  # softmax + cross-entropy
+    dW3 = A2.T @ dZ3
+    db3 = dZ3.sum(axis=0)
+
+    dA2 = dZ3 @ p["W3"].T
+    dZ2 = dA2 * (Z2 > 0)               # ReLU derivative
+    dW2 = A1.T @ dZ2
+    db2 = dZ2.sum(axis=0)
+
+    dA1 = dZ2 @ p["W2"].T
+    dZ1 = dA1 * (Z1 > 0)
+    dW1 = X.T @ dZ1
+    db1 = dZ1.sum(axis=0)
+
+    return {"W1": dW1, "b1": db1, "W2": dW2, "b2": db2, "W3": dW3, "b3": db3}
