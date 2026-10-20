@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import sys
 
 from nn import load_data, MLP, cross_entropy, backward
 
@@ -14,7 +15,8 @@ LRS = [0.001, 0.01, 0.1]
 WIDTHS = [16, 64]
 EPOCHS = 50
 BATCH = 32
-
+STD = float(sys.argv[1]) if len(sys.argv) > 1 else 0.01
+TAG = f"std{STD}"
 X_tr, X_te, Y_tr, Y_te, y_tr, y_te = load_data()
 
 
@@ -24,7 +26,7 @@ def accuracy(net, X, y):
 
 
 def train(width, lr):
-    net = MLP(width=width, seed=42)
+    net = MLP(width=width, seed=42, std=STD)
     rng = np.random.RandomState(42)
     log = []
     n = X_tr.shape[0]

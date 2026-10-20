@@ -26,14 +26,14 @@ def softmax(Z):
 class MLP:
     """64 -> W (ReLU) -> W (ReLU) -> 10 (softmax)"""
 
-    def __init__(self, width=64, seed=42):
+    def __init__(self, width=64, seed=42, std=0.01):
         np.random.seed(seed)
         self.params = {
-            "W1": np.random.normal(0, 0.01, (64, width)),
+            "W1": np.random.normal(0, std, (64, width)),
             "b1": np.zeros(width),
-            "W2": np.random.normal(0, 0.01, (width, width)),
+            "W2": np.random.normal(0, std, (width, width)),
             "b2": np.zeros(width),
-            "W3": np.random.normal(0, 0.01, (width, 10)),
+            "W3": np.random.normal(0, std, (width, 10)),
             "b3": np.zeros(10),
         }
 
