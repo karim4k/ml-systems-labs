@@ -45,6 +45,28 @@ FLOPs for the whole model, roughly 23 times thop's figure.
 Plots: results/accuracy_vs_cost.png (accuracy vs parameters and latency).
 
 ## 4. Conclusions
-1. (write in your own words)
-2. (write in your own words)
-3. (write in your own words)
+1. The CNN gave the best test accuracy (0.8912) with the fewest parameters
+   (20,490), about 11 times fewer than the MLP (235,146), which reached
+   0.8805. The attention model was lowest at 0.8390 after 5 epochs, but its
+   validation accuracy was still rising, so more training might narrow the
+   gap. Convolution reuses the same small kernel at every image position,
+   so it gets good accuracy from few weights.
+
+2. Parameter count does not predict latency. The CNN has 11 times fewer
+   parameters than the MLP but is about 5 times slower at batch 128
+   (2.776 ms vs 0.552 ms), because it performs about 4 times more FLOPs
+   (thop: 2.06 M vs 0.47 M) on large activation maps. The MLP is the
+   fastest at both batch sizes. Attention is the slowest at batch 1
+   (1.071 ms), which fits many small operations (unfold, softmax,
+   LayerNorm) where overhead dominates. Overall, the CNN is the most
+   cost-effective on accuracy per parameter, and the MLP is best if
+   latency matters most.
+
+3. thop gave a misleading cost for attention. It reported 101,632 FLOPs,
+   which covers only the input projection and the final layer, so it
+   counted nothing inside the encoder layers. My hand estimate is about
+   2.33 million FLOPs, roughly 23 times higher, which puts attention's
+   real compute near the CNN's. Profiling tools therefore need to be
+   checked against hand calculations, especially for attention layers.
+   Also, the manual's 100k-150k parameter target did not match the
+   specified architectures, so I reported the actual counts.
