@@ -1,0 +1,4 @@
+model,params,val_acc,test_acc,train_time_s
+mlp,235146,0.8838,0.8805,57.8
+cnn,20490,0.8928,0.8912,66.2
+attention,70794,0.8472,0.839,105.3
