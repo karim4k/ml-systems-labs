@@ -1,0 +1,4 @@
+model,params,thop_macs,thop_flops_2xMACs,latency_b1_ms,latency_b128_ms
+mlp,235146,234752,469504,0.218,0.5524
+cnn,20490,1031744,2063488,0.2733,2.7761
+attention,70794,50816,101632,1.071,3.0838
