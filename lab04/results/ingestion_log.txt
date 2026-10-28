@@ -1,0 +1,19 @@
+Rows: 48842 (expected 48842) -> OK
+Columns: 15 (expected 15) -> OK
+Column names: ['age', 'workclass', 'fnlwgt', 'education', 'education-num', 'marital-status', 'occupation', 'relationship', 'race', 'sex', 'capital-gain', 'capital-loss', 'hours-per-week', 'native-country', 'class']
+Dtypes:
+age                  int64
+workclass         category
+fnlwgt               int64
+education         category
+education-num        int64
+marital-status    category
+occupation        category
+relationship      category
+race              category
+sex               category
+capital-gain         int64
+capital-loss         int64
+hours-per-week       int64
+native-country    category
+class             category

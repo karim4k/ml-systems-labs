@@ -69,4 +69,8 @@ Plots: results/accuracy_vs_cost.png (accuracy vs parameters and latency).
    real compute near the CNN's. Profiling tools therefore need to be
    checked against hand calculations, especially for attention layers.
    Also, the manual's 100k-150k parameter target did not match the
+<<<<<<< HEAD
    specified architectures, so I reported the actual counts.
+=======
+   specified architectures, so I reported the actual counts.
+>>>>>>> 601e71f (Lab 4: problem definition, ingestion, validation)

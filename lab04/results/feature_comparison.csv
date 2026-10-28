@@ -1,0 +1,3 @@
+setting,accuracy,f1_>50K
+without_features,0.854,0.6601
+with_features,0.8578,0.6696

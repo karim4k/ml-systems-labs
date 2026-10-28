@@ -1,0 +1,34 @@
+check,column,count,note
+columns_present,all,0,missing=[] extra=[]
+type_int,age,0,"dtype=int64, whole_numbers=True"
+type_int,fnlwgt,0,"dtype=int64, whole_numbers=True"
+type_int,education-num,0,"dtype=int64, whole_numbers=True"
+type_int,capital-gain,0,"dtype=int64, whole_numbers=True"
+type_int,capital-loss,0,"dtype=int64, whole_numbers=True"
+type_int,hours-per-week,0,"dtype=int64, whole_numbers=True"
+type_category,workclass,0,dtype=category
+type_category,education,0,dtype=category
+type_category,marital-status,0,dtype=category
+type_category,occupation,0,dtype=category
+type_category,relationship,0,dtype=category
+type_category,race,0,dtype=category
+type_category,sex,0,dtype=category
+type_category,native-country,0,dtype=category
+type_category,income,0,dtype=category
+range,age,0,"allowed 17-90, observed min=17 max=90"
+range,hours-per-week,0,"allowed 1-99, observed min=1 max=99"
+range,capital-gain,0,"allowed 0-99999, observed min=0 max=99999"
+range,capital-loss,0,"allowed 0-4356, observed min=0 max=4356"
+missing,workclass,2799,"NaN=2799, '?'=0"
+missing,occupation,2809,"NaN=2809, '?'=0"
+missing,native-country,857,"NaN=857, '?'=0"
+allowed_categories,workclass,0,
+allowed_categories,education,0,
+allowed_categories,marital-status,0,
+allowed_categories,occupation,0,
+allowed_categories,relationship,0,
+allowed_categories,race,0,
+allowed_categories,sex,0,
+allowed_categories,native-country,0,
+allowed_categories,income,0,
+exact_duplicate_rows,all,52,all 15 columns identical; rows are NOT dropped here
