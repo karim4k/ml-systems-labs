@@ -1,0 +1,4 @@
+Duplicate feature-row groups: 54
+Groups with conflicting income labels: 5
+Rows involved in conflicts: 10
+50-row sample impossible-value flags: {'bad_age': 0, 'bad_hours': 0, 'bad_gain': 0, 'bad_loss': 0, 'edu_mismatch': 0}

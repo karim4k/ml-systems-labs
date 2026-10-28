@@ -16,9 +16,11 @@ def main():
 
     raw = ingest.load_raw()
     df = ingest.to_schema(raw)
-    validate.run(df)
-    features_eval.run(df, cfg)
+    X_tr, X_te, y_tr, y_te = features_eval.run(df, cfg)
+    import audit
+    audit.run(df, cfg, X_tr, X_te, y_tr, y_te)
 
 
 if __name__ == "__main__":
     main()
+    

@@ -1,0 +1,11 @@
+clip_percentiles:
+- 1
+- 99
+dataset:
+  name: adult
+  version: 2
+processed_sha256: 1de6b204b6524f63be6ada1a1faf9788580ba623821cf022a5d75860e951e7a9
+seed: 42
+split:
+  stratify: income
+  test_size: 0.3
