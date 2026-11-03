@@ -44,7 +44,7 @@ FLOPs for the whole model, roughly 23 times thop's figure.
 
 Plots: results/accuracy_vs_cost.png (accuracy vs parameters and latency).
 
-## 4. Conclusions
+
 ## 4. Conclusions
 1. The CNN gave the best test accuracy (0.8912) with the fewest parameters
    (20,490), about 11 times fewer than the MLP (235,146), which reached
