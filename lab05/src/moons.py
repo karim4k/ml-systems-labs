@@ -18,7 +18,7 @@ EPOCHS = 30
 LR = 0.5
 H = 8
 
-X, y = make_moons(n_samples=1000, noise=0.1, random_state=42)
+X, y = make_moons(n_samples=200, noise=0.1, random_state=42)
 rng = np.random.RandomState(42)
 W1_0 = rng.randn(H, 2) * 0.5
 b1_0 = np.zeros(H)

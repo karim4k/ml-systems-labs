@@ -1,10 +1,10 @@
 operation,median_ms
-x + x            (both contiguous),0.319
-xt + x           (mixed layouts),3.2972
-x.exp()          (contiguous),0.6688
-xt.exp()         (non-contiguous),0.8295
-xt.contiguous()  (copy to fix layout),5.8447
-xt.reshape(-1)   (forces a copy),4.802
+x + x            (both contiguous),0.3311
+xt + x           (mixed layouts),3.4675
+x.exp()          (contiguous),0.8108
+xt.exp()         (non-contiguous),0.9529
+xt.contiguous()  (copy to fix layout),5.8072
+xt.reshape(-1)   (forces a copy),4.6318
 x.reshape(-1)    (free view),0.0012
-x @ x            (matmul),21.4656
-"xt @ x           (matmul, transposed)",21.8883
+x @ x            (matmul),20.5559
+"xt @ x           (matmul, transposed)",21.9996
