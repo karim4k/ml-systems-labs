@@ -1,0 +1,11 @@
+Expression: ((a*b+c)**2).relu().sum()
+  forward value: engine=11.6879237903 torch=11.6879237903
+  max |engine - torch autograd| = 0.000e+00  (OK, need < 1e-6)
+  max |engine - numerical|      = 1.052e-09  (OK, need < 1e-6)
+
+Expression: (a*b+c).relu().sum()   [extra: exercises the ReLU gate]
+  forward value: engine=0.7390209494 torch=0.7390209494
+  max |engine - torch autograd| = 0.000e+00  (OK, need < 1e-6)
+  max |engine - numerical|      = 5.423e-11  (OK, need < 1e-6)
+
+Accumulation test x*x + x at x=3: grad=7.0 (expected 7.0) -> OK

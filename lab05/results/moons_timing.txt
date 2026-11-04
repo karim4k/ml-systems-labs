@@ -1,0 +1,5 @@
+Epochs=30, lr=0.5, hidden=8, full-batch gradient descent, float64
+Engine : median time 17.490 s, final loss 0.283951, accuracy 0.8780
+PyTorch: median time 0.021 s, final loss 0.283951, accuracy 0.8780
+Engine / PyTorch time ratio: 843.0x
+Max |loss_engine - loss_torch| over epochs: 2.419e-12
