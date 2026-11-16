@@ -1,0 +1,25 @@
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                           data_loading         0.06%      22.868ms        66.18%       26.084s      60.520ms           431  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        42.63%       16.802s        66.13%       26.061s      60.467ms           431  
+                                               backward         0.58%     227.387ms        20.36%        8.024s      18.661ms           430  
+autograd::engine::evaluate_function: ConvolutionBack...         0.09%      37.251ms        14.60%        5.753s       6.690ms           860  
+                                   ConvolutionBackward0         0.02%       9.430ms        14.50%        5.716s       6.646ms           860  
+                             aten::convolution_backward        14.40%        5.677s        14.48%        5.706s       6.635ms           860  
+                                                forward         0.64%     252.604ms        10.43%        4.111s       9.561ms           430  
+                                               aten::to         0.98%     387.871ms         6.39%        2.517s       6.354us        396180  
+                                         aten::_to_copy         2.82%        1.111s         5.62%        2.215s      12.631us        175320  
+                                       aten::max_pool2d         0.01%       5.564ms         5.00%        1.969s       2.290ms           860  
+                          aten::max_pool2d_with_indices         4.98%        1.964s         4.98%        1.964s       2.283ms           860  
+                                              aten::div         2.24%     881.446ms         3.90%        1.537s      26.688us         57580  
+                                               aten::eq         1.84%     723.329ms         3.49%        1.376s      25.014us         55000  
+                                           aten::conv2d         0.02%       6.009ms         3.38%        1.332s       1.549ms           860  
+                                      aten::convolution         0.06%      23.711ms         3.36%        1.326s       1.542ms           860  
+                                     aten::_convolution         0.04%      14.153ms         3.30%        1.302s       1.514ms           860  
+                               aten::mkldnn_convolution         3.22%        1.269s         3.27%        1.288s       1.498ms           860  
+     autograd::engine::evaluate_function: ReluBackward0         0.20%      80.607ms         3.21%        1.267s       1.473ms           860  
+                                            aten::copy_         3.16%        1.246s         3.16%        1.246s       4.360us        285750  
+                                         optimizer_step         0.71%     279.573ms         3.02%        1.192s       2.771ms           430  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 39.412s
