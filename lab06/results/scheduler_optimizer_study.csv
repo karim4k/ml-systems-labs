@@ -1,0 +1,7 @@
+run,optimizer,scheduler,final_train_loss,final_val_acc,test_acc
+adam_none,adam,none,0.21,0.906,0.8988
+adam_step,adam,step,0.2215,0.9028,0.8999
+adam_cosine,adam,cosine,0.216,0.906,0.9016
+adam_plateau,adam,plateau,0.21,0.906,0.8988
+sgd_none,sgd,none,0.2253,0.9,0.8976
+sgd_cosine,sgd,cosine,0.2255,0.9042,0.9036

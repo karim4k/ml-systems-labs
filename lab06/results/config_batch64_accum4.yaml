@@ -1,0 +1,18 @@
+accum_steps: 4
+batch_size: 64
+checkpoint_dir: lab06/results/checkpoints
+epochs: 5
+experiment: lab06-fashion-mnist-cnn
+model: cnn
+num_workers: 0
+optimizer:
+  lr: 0.001
+  momentum: 0.9
+  name: adam
+results_dir: lab06/results
+run_name: batch64_accum4
+scheduler:
+  gamma: 0.5
+  name: none
+  step_size: 3
+seed: 42
