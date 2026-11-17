@@ -1,44 +1,59 @@
-Clothing classifier for a small device
+
+Lead scoring for phone sales: predict which customers will say yes to a call
+# Individual Project Proposal
+
 **Student:** Karim Kallel  **ID:** 70592
 
 ## 1. Problem
-Classify small grayscale clothing images (10 classes) on a resource-limited
-device, such as an embedded camera or a phone. A large model is accurate but
-too big and slow for the device, so the goal is to compress it while keeping
-accuracy close to the original.
+Phone sales teams call many customers and only a small share say yes.
+The project builds a lead-scoring model that predicts, before a call,
+whether a customer will subscribe to the offer, so that agents call the
+most promising leads first. It must run cheaply inside a CRM or a
+call-center tool, so the model has to be small and fast. I have sold by
+phone and face to face in my own business, so I know this process.
 
 ## 2. Dataset
-Fashion-MNIST (torchvision), as in Labs 3 and 6.
-- Source: Zalando Research. License: MIT (I will confirm on the dataset page
-  before submitting the data card).
-- Size: 70,000 images of 28x28 pixels; 55k train / 5k validation / 10k test.
-- Known biases: only 10 product categories, clean studio-style images on a
-  plain background, so it does not represent real camera conditions.
+UCI Bank Marketing (Moro, Cortez and Rita, 2014), phone campaigns of a
+Portuguese bank.
+- Source: UCI Machine Learning Repository. License: I believe CC BY 4.0,
+  and I will confirm it on the dataset page.
+- Size: about 45,000 rows, 16 input features plus the yes/no outcome.
+- Known issues: strong class imbalance (about 11% yes); one portuguese
+  bank and 2008-2010 only; the `duration` feature is known only after the
+  call and will be removed to avoid leakage; age and marital status are
+  sensitive attributes.
+- Approval requested for this dataset (not in the default list).
 
 ## 3. Success metric
-- Test accuracy (10k official test set), compared with the teacher and with
-  my Lab 3 CNN (0.8912). Target: student accuracy within 1.5 points of the
-  teacher and at least 0.90.
-- Secondary: macro F1 per class.
+- Primary: F1 and PR-AUC on the positive class, on a held-out test set
+  with a stratified split before any fitting.
+- Business metric: share of all "yes" customers found in the top 20% of
+  scored leads (lift), compared with calling at random.
+- Target: the compressed model loses at most 2 points of PR-AUC against
+  the teacher.
 
 ## 4. Deployment constraints
-- Latency <= 50 ms per single image (batch 1, CPU, median of 100 runs after
+- Latency <= 50 ms per customer (batch 1, CPU, median of 100 runs after
   warm-up).
-- Model size <= 5 MB (saved file on disk).
+- Model size <= 5 MB (file on disk).
 
 ## 5. Baselines and planned optimization
-- Baselines: (a) my Lab 3 CNN (20,490 parameters, about 80 KB); (b) a larger
-  teacher (a ResNet-style network, about 11 M parameters, which is too big for
-  the 5 MB limit in float32).
-- Optimization: knowledge distillation from the teacher into a small student
-  network, followed by post-training int8 quantization. If time allows, I
-  will add magnitude pruning and compare it with distillation alone.
-- Evaluation: a table of accuracy, F1, file size and latency for the
-  teacher, student, quantized student and (optionally) pruned student.
+- Baselines: logistic regression and gradient-boosted trees.
+- Teacher: a large ensemble (several large MLPs or boosted models) whose
+  total size is above 5 MB.
+- Student: a small MLP under 5 MB.
+- Optimization: (1) knowledge distillation from the teacher to the
+  student, (2) magnitude pruning with fine-tuning, (3) post-training
+  int8 quantization, compared as an ablation.
+- Final table: PR-AUC, F1, lift, file size and latency for each model.
 
 ## 6. Plan and risks
-- Reproducible YAML-driven pipeline with MLflow tracking (as built in Lab 6),
-  fixed seed 42, pinned library versions.
-- Risks: quantization may reduce accuracy; CPU-only training of the teacher
-  may be slow, so I will limit its epochs; a pure int8 speed-up is not
-  guaranteed on my CPU, so I will measure it and not assume it.
+- Reuse the Lab 4 leakage-free pipeline (split first, fit on train only,
+  duplicates, validation report, SHA256 hash, data card) and the Lab 6
+  YAML + MLflow training pipeline. Seed 42, pinned versions.
+- Risk 1: tabular models are already small, so size and latency limits
+  may be met without compression; I will report that honestly and use
+  the teacher/student gap to show the benefit.
+- Risk 2: class imbalance, so I will use class weights or resampling on
+  train only, and judge by PR-AUC, not accuracy.
+- Risk 3: int8 speed-up is not guaranteed on my CPU, so I will measure it.
