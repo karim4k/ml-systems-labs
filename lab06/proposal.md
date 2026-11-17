@@ -1,5 +1,4 @@
-# Individual Project Proposal
-
+Clothing classifier for a small device
 **Student:** Karim Kallel  **ID:** 70592
 
 ## 1. Problem
